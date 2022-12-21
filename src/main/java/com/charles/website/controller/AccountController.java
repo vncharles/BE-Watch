@@ -68,9 +68,9 @@ public class AccountController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@Validated @RequestBody Map<String, String> login) {
-        String email = login.get("email");
+        String username = login.get("username");
         String password = login.get("password");
-        return ResponseEntity.ok(userService.loginAccount(email, password));
+        return ResponseEntity.ok(userService.loginAccount(username, password));
     }
 
     @PostMapping("/register")
