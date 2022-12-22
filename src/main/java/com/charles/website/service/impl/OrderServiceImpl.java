@@ -84,13 +84,13 @@ public class OrderServiceImpl implements OrderService {
             order.setAddress(req.getAddress());
         }
         if(req.getStatus()!=null) {
-            if(req.getStatus().equals("confirm")) {
+            if(req.getStatus().equalsIgnoreCase("confirm")) {
                 order.setStatus(EStatusOrder.CONFIRM);
-            } else if(req.getStatus().equals("delivery")) {
+            } else if(req.getStatus().equalsIgnoreCase("delivery")) {
                 order.setStatus(EStatusOrder.DELIVERY);
-            } else if(req.getStatus().equals("success")) {
+            } else if(req.getStatus().equalsIgnoreCase("success")) {
                 order.setStatus(EStatusOrder.SUCCESS);
-            } else if(req.getStatus().equals("cancle")) {
+            } else if(req.getStatus().equalsIgnoreCase("cancle")) {
                 order.setStatus(EStatusOrder.CANCLE);
                 order.getProduct().increaseStock(order.getQuantity());
                 productRepository.save(order.getProduct());
