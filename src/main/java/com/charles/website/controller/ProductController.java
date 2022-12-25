@@ -52,7 +52,7 @@ public class ProductController {
     @PutMapping("/update")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public ResponseEntity<?> update(@RequestParam Long id,
-                                    @RequestParam("image") MultipartFile image,
+                                    @RequestParam(value = "image", required = false) MultipartFile image,
                                     @RequestParam("data") String data) throws JsonProcessingException {
         Authen.check();
         ObjectMapper mapper = new ObjectMapper();
